@@ -4,5 +4,3 @@
 build/
 dist/
 *.spec
-
-containers_list.yml
