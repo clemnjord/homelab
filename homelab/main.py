@@ -31,7 +31,7 @@ def stop(containers_path: Annotated [Path, typer.Argument()] = Path('.')):
     :return:
     """
     for container in get_containers(containers_path):
-        os.system(f"docker compose down {container}")
+        os.system(f"docker compose -f {container} down")
 
 @app.command()
 def start(containers_path: Annotated [Path, typer.Argument()] = Path('.'), detach: bool = True, force_recreate: bool = False):
@@ -43,7 +43,7 @@ def start(containers_path: Annotated [Path, typer.Argument()] = Path('.'), detac
     :return:
     """
     for container in get_containers(containers_path):
-        os.system(f"docker compose up {'-d' if detach else ''} {'--force-recreate' if force_recreate else ''} {container}")
+        os.system(f"docker compose -f {container} up {'-d' if detach else ''} {'--force-recreate' if force_recreate else ''}")
 
 @app.command()
 def pull(containers_path: Annotated [Path, typer.Argument()] = Path('.')):
@@ -53,7 +53,7 @@ def pull(containers_path: Annotated [Path, typer.Argument()] = Path('.')):
     :return:
     """
     for container in get_containers(containers_path):
-        os.system(f"docker compose pull {container}")
+        os.system(f"docker compose -f {container} pull")
 
 if __name__ == "__main__":
     app()
