@@ -1,0 +1,1 @@
+Simple CLI for managing multiple docker containers start/stop/pull.

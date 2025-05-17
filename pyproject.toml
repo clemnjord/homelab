@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "homelab"
+version = "0.1.0"
+description = "Simple CLI for managing multiple docker containers start/stop/pull"
+authors = ["Clement PUECH <contact@clementpuech.com>"]
+readme = "README.adoc"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.14"
+typer = "^0.15.4"
+pyyaml = "^6.0.2"
+
+
+[tool.poetry.scripts]
+homelab = "homelab.main:app"
+
+[tool.poetry.group.dev.dependencies]
+pyinstaller = "^6.13.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
